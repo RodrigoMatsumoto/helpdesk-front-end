@@ -26,6 +26,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavComponent } from './components/nav/nav.component';
 import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
+import { AuthInterceptorProvider } from './interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,7 @@ import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-
       progressBar: true
     })
   ],
-  providers: [],
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,16 +2,16 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
-import { Tecnico } from '../../../models/tecnico';
-import { TecnicoService } from '../../../services/tecnico.service';
+import { Cliente } from '../../../models/cliente';
+import { ClienteService } from '../../../services/cliente.service';
 
 @Component({
-  selector: 'app-tecnico-delete',
-  templateUrl: './tecnico-delete.component.html',
-  styleUrl: './tecnico-delete.component.css'
+  selector: 'app-cliente-delete',
+  templateUrl: './cliente-delete.component.html',
+  styleUrl: './cliente-delete.component.css'
 })
-export class TecnicoDeleteComponent {
-  tecnico: Tecnico = {
+export class ClienteDeleteComponent {
+  cliente: Cliente = {
     id:'',
     nome: '',
     cpf: '',
@@ -22,27 +22,27 @@ export class TecnicoDeleteComponent {
   }
   
   constructor(
-    private service: TecnicoService,
+    private service: ClienteService,
     private toastr: ToastrService,
     private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.tecnico.id = this.route.snapshot.paramMap.get('id');
+    this.cliente.id = this.route.snapshot.paramMap.get('id');
     this.findById();
   }
 
   findById(): void {
-    this.service.findById(this.tecnico.id).subscribe(resposta => {
+    this.service.findById(this.cliente.id).subscribe(resposta => {
       resposta.perfis = [];
-      this.tecnico = resposta;
+      this.cliente = resposta;
     });
   }
 
   delete(): void {
-    this.service.delete(this.tecnico.id).subscribe(() => {
-      this.toastr.success('Técnico deletado com sucesso', 'Delete');
-      this.router.navigate(['tecnicos']);
+    this.service.delete(this.cliente.id).subscribe(() => {
+      this.toastr.success('Cliente deletado com sucesso', 'Delete');
+      this.router.navigate(['clientes']);
     }, ex => {
       if(ex.error.errors) {
         ex.error.errors.forEach((element: { message: string | undefined; }) => {

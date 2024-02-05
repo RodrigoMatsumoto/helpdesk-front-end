@@ -9,7 +9,7 @@
     width: 100%;
 }
 
-h1 {
+h1, p {
     text-align: center;
 }
 
@@ -26,4 +26,13 @@ img {
 
 button {
     margin-top: .5rem;
+}
+
+p {
+    margin-top: 4rem;
+    opacity: .5;
+}
+
+mat-icon {
+    opacity: .8;
 }

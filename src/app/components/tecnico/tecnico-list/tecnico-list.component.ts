@@ -11,7 +11,17 @@ import { TecnicoService } from '../../../services/tecnico.service';
 })
 export class TecnicoListComponent implements OnInit {
   
-  ELEMENT_DATA: Tecnico[] = [];
+  ELEMENT_DATA: Tecnico[] = [
+    {
+      id: 1,
+      nome: 'Valdir Cezar',
+      cpf: '123.456.789-10',
+      email: 'Valdir@email.com',
+      senha: '1234',
+      perfis: ['0'],
+      dataCriacao: '15/08/2022'
+    }
+  ];
 
   displayedColumns: string[] = ['id', 'nome', 'cpf', 'email', 'acoes'];
   dataSource = new MatTableDataSource<Tecnico>(this.ELEMENT_DATA);

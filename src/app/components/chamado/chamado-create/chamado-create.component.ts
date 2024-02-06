@@ -46,8 +46,8 @@ export class ChamadoCreateComponent implements OnInit{
   ) { }
 
   ngOnInit(): void {
-      this.findAllClientes();
-      this.findAllTecnicos();
+    this.findAllClientes();
+    this.findAllTecnicos();
   }
 
   create(): void {
